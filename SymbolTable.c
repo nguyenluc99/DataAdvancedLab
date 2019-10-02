@@ -48,8 +48,8 @@ void dynamicAllocate(phoneBook * book) {
 int binSearchName(int low, int high, char* target, phoneBook * book) {
     int mid = (int)((low + high) / 2);
     int cmp =  strcmp(book->entries[mid].name, target);
-    if (low > high) return -1;
-    if (cmp == 0) return mid;
+    // if (low > high) return -1;
+    if (cmp == 0 || low == mid) return mid;
     else if (cmp > 0) return binSearchName(mid + 1, high, target, book);
     else return binSearchName(low, mid - 1, target, book);
 }
@@ -72,7 +72,11 @@ void addPhoneNumber(char * name, long number, phoneBook * book) {
 
      // add phone number
     index = binSearchName(0, book->total, name, book);
-    printf("index of %s is %d", name, index);
+    // printf("index of %s is %d", name, index);
+    if (index == -1) {
+
+
+    }
 }
 
 phoneEntry * getPhoneNumber(char * name, phoneBook * book) {
@@ -81,4 +85,5 @@ phoneEntry * getPhoneNumber(char * name, phoneBook * book) {
 void main() {
     phoneBook firstBook = createPhoneBook();
     printf("size of book is : %d", firstBook.size);
+    // addPhoneNumber
 }
