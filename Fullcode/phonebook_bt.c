@@ -2,7 +2,8 @@
 #include<stdlib.h>
 #include<string.h>
 
-#include "inc/bt.h"
+// #include "inc/bt.h"
+#include "./../bt-5.0.0/inc/bt.h"
 
 
 int main()
